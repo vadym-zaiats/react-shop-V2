@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import styles from "./main.module.scss";
 import Header from "./components/Header";
 import CardContainer from "./components/CardContainer";
@@ -89,6 +89,7 @@ class App extends Component {
         <div className={styles.main}>
           <CardContainer
             products={products}
+            toggleModal={this.toggleModal}
             favourites={favourites}
             addToFav={this.addToFav}
             addToBasket={this.addToBasket}
