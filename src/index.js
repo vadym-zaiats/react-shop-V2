@@ -89,7 +89,6 @@ class App extends Component {
         <div className={styles.main}>
           <CardContainer
             products={products}
-            toggleModal={this.toggleModal}
             favourites={favourites}
             addToFav={this.addToFav}
             addToBasket={this.addToBasket}
@@ -100,6 +99,7 @@ class App extends Component {
     );
   }
 }
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />
