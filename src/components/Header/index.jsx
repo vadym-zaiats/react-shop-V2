@@ -1,25 +1,24 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import basket from "../../img/basket.svg";
+import basketIco from "../../img/basket.svg";
 import favourite from "../../img/favourite.svg";
 import styles from "./Button.module.scss";
 
-class Header extends Component {
-  render() {
-    return (
-      <div className={styles.header}>
-        <div className={styles.header_favourite}>
-          <div>{this.props.favourites}</div>
-          <img src={favourite} alt="favourite" />
-        </div>
-        <div className={styles.header_basket}>
-          <div>{this.props.basket}</div>
-          <img src={basket} alt="basket" />
-        </div>
+const Header = ({ basket, favourites }) => {
+  return (
+    <div className={styles.header}>
+      <div className={styles.header_favourite}>
+        <div>{favourites}</div>
+        <img src={favourite} alt="favourite" />
       </div>
-    );
-  }
-}
+      <div className={styles.header_basket}>
+        <div>{basket}</div>
+        <img src={basketIco} alt="basket" />
+      </div>
+    </div>
+  );
+};
+
 Header.propTypes = {
   favourites: PropTypes.number,
   basket: PropTypes.number,
