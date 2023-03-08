@@ -35,67 +35,13 @@ import CardContainer from "./components/CardContainer";
 //       }
 //     });
 //   };
-//   addToFav = (card) => {
-//     this.setState((states) => {
-//       let allFavCars = [...states.favourites];
-//       for (let car of allFavCars) {
-//         if (car.code === card.code) {
-//           localStorage.setItem(
-//             "favourites",
-//             JSON.stringify(
-//               this.state.favourites.filter((el) => el.code !== card.code)
-//             )
-//           );
-//           return {
-//             favourites: this.state.favourites.filter(
-//               (el) => el.code !== card.code
-//             ),
-//           };
-//         }
-//       }
-//       allFavCars.push(card);
-//       localStorage.setItem("favourites", JSON.stringify(allFavCars));
-//       return { favourites: allFavCars };
-//     });
-//   };
-
-//   addToBasket = (card) => {
-//     this.setState((states) => {
-//       let allCarsInBasket = [...states.basket];
-//       for (let car of allCarsInBasket) {
-//         if (car.code === card.code) {
-//           return alert("Авто вже у корзині");
-//         }
-//       }
-//       allCarsInBasket.push(card);
-//       localStorage.setItem("basket", JSON.stringify(allCarsInBasket));
-//       return { basket: allCarsInBasket };
-//     });
-//   };
-
 //   render() {
-//     const { products, favourites } = this.state;
-
-//     if (!products) {
-//       return <div>Loading...</div>;
-//     }
-
 //     return (
 //       <>
 //         <Header
 //           favourites={this.state.favourites.length}
 //           basket={this.state.basket.length}
 //         />
-//         <div className={styles.main}>
-//           <CardContainer
-//             products={products}
-//             toggleModal={this.toggleModal}
-//             favourites={favourites}
-//             addToFav={this.addToFav}
-//             addToBasket={this.addToBasket}
-//           />
-//           {/* <Basket /> */}
-//         </div>
 //       </>
 //     );
 //   }
@@ -103,6 +49,7 @@ import CardContainer from "./components/CardContainer";
 const App = () => {
   const [products, fetchProducts] = useState(null);
   const [favourites, getFavourites] = useState([]);
+  const [basket, getBasket] = useState([]);
 
   useEffect(() => {
     // fetch
@@ -111,15 +58,15 @@ const App = () => {
       .then((res) => {
         fetchProducts(res);
       });
-  }, []);
-  // favourites
-  useEffect(() => {
     if (localStorage.getItem("favourites")) {
-      return getFavourites(JSON.parse(localStorage.getItem("favourites")));
+      getFavourites(JSON.parse(localStorage.getItem("favourites")));
+    }
+    if (localStorage.getItem("basket")) {
+      getBasket(JSON.parse(localStorage.getItem("basket")));
     }
   }, []);
 
-  let addToFav = (card) => {
+  const addToFav = (card) => {
     let allFavCars = [...favourites];
     for (let car of allFavCars) {
       if (car.code === card.code) {
@@ -134,7 +81,17 @@ const App = () => {
     localStorage.setItem("favourites", JSON.stringify(allFavCars));
     return getFavourites(allFavCars);
   };
-
+  const addToBasket = (card) => {
+    let allCarsInBasket = [...basket];
+    for (let car of allCarsInBasket) {
+      if (car.code === card.code) {
+        return alert("Авто вже у корзині");
+      }
+    }
+    allCarsInBasket.push(card);
+    localStorage.setItem("basket", JSON.stringify(allCarsInBasket));
+    return getBasket(allCarsInBasket);
+  };
   if (!products) {
     return <h1>Loading...</h1>;
   }
@@ -144,6 +101,7 @@ const App = () => {
       products={products}
       favourites={favourites}
       addToFav={addToFav}
+      addToBasket={addToBasket}
     />
   );
 };

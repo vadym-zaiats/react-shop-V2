@@ -19,26 +19,26 @@ class CardItem extends Component {
     };
   }
 
-  // componentDidMount = () => {
-  //   this.setState(() => {
-  //     const { favourites, code } = this.props;
-  //     for (const car of favourites) {
-  //       if (car.code === code) {
-  //         return { favourite: true };
-  //       }
-  //     }
-  //   });
-  // };
-  // toggleModal = () => {
-  //   const setActive = this.state.modal;
-  //   setActive.isActive = !setActive.isActive;
-  //   this.setState({ setActive });
-  // };
-  // closeModal = (e) => {
-  //   if (e.target.classList.contains("Modal_modal_overlay__0uG9G")) {
-  //     this.toggleModal();
-  //   }
-  // };
+  componentDidMount = () => {
+    this.setState(() => {
+      const { favourites, code } = this.props;
+      for (const car of favourites) {
+        if (car.code === code) {
+          return { favourite: true };
+        }
+      }
+    });
+  };
+  toggleModal = () => {
+    const setActive = this.state.modal;
+    setActive.isActive = !setActive.isActive;
+    this.setState({ setActive });
+  };
+  closeModal = (e) => {
+    if (e.target.classList.contains("Modal_modal_overlay__0uG9G")) {
+      this.toggleModal();
+    }
+  };
   render() {
     const { logo, title, color, price, code, addToFavourite, addToBasket } =
       this.props;

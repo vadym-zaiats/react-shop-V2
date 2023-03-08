@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import CardItem from "../CardItem";
 import styles from "./CardContainer.module.scss";
-const CardContainer = ({ products, favourites, addToFav }) => {
+const CardContainer = ({ products, favourites, addToFav, addToBasket }) => {
   return (
     <>
       <ul className={styles.list}>
@@ -16,7 +16,7 @@ const CardContainer = ({ products, favourites, addToFav }) => {
               code={barcode}
               favourites={favourites}
               addToFavourite={addToFav}
-              // addToBasket={addToBasket}
+              addToBasket={addToBasket}
               // toggleModal={toggleModal}
             />
           </li>
