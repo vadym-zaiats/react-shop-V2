@@ -1,51 +1,7 @@
 import ReactDOM from "react-dom/client";
-import React, { Component, useEffect, useState } from "react";
-import styles from "./main.module.scss";
-import Header from "./components/Header";
+import React, { useEffect, useState } from "react";
 import CardContainer from "./components/CardContainer";
-// import Basket from "./components/Basket";
 
-// class App extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       favourites: [],
-//       basket: [],
-//       products: null,
-//     };
-//   }
-//   componentDidMount = () => {
-//     // завантаження списку авто
-//     fetch("./collection.json")
-//       .then((res) => res.json())
-//       .then((res) => {
-//         this.setState({ products: res });
-//       });
-//     // витягуємо favourite з localStorage
-//     this.setState(() => {
-//       let carsFromJson = JSON.parse(localStorage.getItem("favourites"));
-//       if (carsFromJson) {
-//         return { favourites: carsFromJson };
-//       }
-//     });
-//     this.setState(() => {
-//       let carsFromJson = JSON.parse(localStorage.getItem("basket"));
-//       if (carsFromJson) {
-//         return { basket: carsFromJson };
-//       }
-//     });
-//   };
-//   render() {
-//     return (
-//       <>
-//         <Header
-//           favourites={this.state.favourites.length}
-//           basket={this.state.basket.length}
-//         />
-//       </>
-//     );
-//   }
-// }
 const App = () => {
   const [products, fetchProducts] = useState(null);
   const [favourites, getFavourites] = useState([]);
