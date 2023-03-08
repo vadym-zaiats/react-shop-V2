@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import React, { useEffect, useState } from "react";
 import CardContainer from "./components/CardContainer";
-
+import Header from "./components/Header";
 const App = () => {
   const [products, fetchProducts] = useState(null);
   const [favourites, getFavourites] = useState([]);
@@ -51,14 +51,16 @@ const App = () => {
   if (!products) {
     return <h1>Loading...</h1>;
   }
-
   return (
-    <CardContainer
-      products={products}
-      favourites={favourites}
-      addToFav={addToFav}
-      addToBasket={addToBasket}
-    />
+    <>
+      <Header basket={basket.length} favourites={favourites.length} />
+      <CardContainer
+        products={products}
+        favourites={favourites}
+        addToFav={addToFav}
+        addToBasket={addToBasket}
+      />
+    </>
   );
 };
 ReactDOM.createRoot(document.getElementById("root")).render(
