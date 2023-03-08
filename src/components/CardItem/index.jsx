@@ -19,26 +19,26 @@ class CardItem extends Component {
     };
   }
 
-  componentDidMount = () => {
-    this.setState(() => {
-      const { favourites, code } = this.props;
-      for (const car of favourites) {
-        if (car.code === code) {
-          return { favourite: true };
-        }
-      }
-    });
-  };
-  toggleModal = () => {
-    const setActive = this.state.modal;
-    setActive.isActive = !setActive.isActive;
-    this.setState({ setActive });
-  };
-  closeModal = (e) => {
-    if (e.target.classList.contains("Modal_modal_overlay__0uG9G")) {
-      this.toggleModal();
-    }
-  };
+  // componentDidMount = () => {
+  //   this.setState(() => {
+  //     const { favourites, code } = this.props;
+  //     for (const car of favourites) {
+  //       if (car.code === code) {
+  //         return { favourite: true };
+  //       }
+  //     }
+  //   });
+  // };
+  // toggleModal = () => {
+  //   const setActive = this.state.modal;
+  //   setActive.isActive = !setActive.isActive;
+  //   this.setState({ setActive });
+  // };
+  // closeModal = (e) => {
+  //   if (e.target.classList.contains("Modal_modal_overlay__0uG9G")) {
+  //     this.toggleModal();
+  //   }
+  // };
   render() {
     const { logo, title, color, price, code, addToFavourite, addToBasket } =
       this.props;
@@ -72,34 +72,34 @@ class CardItem extends Component {
     );
   }
 }
-CardItem.propTypes = {
-  logo: PropTypes.string,
-  title: PropTypes.string,
-  color: PropTypes.string,
-  price: PropTypes.number,
-  code: PropTypes.number,
-  toggleModal: PropTypes.func,
-  favourites: PropTypes.array,
-  addToFavourite: PropTypes.func,
-  addToBasket: PropTypes.func,
-};
-CardItem.defaultProps = {
-  logo: { death },
-  title: "Назва марки",
-  color: "Колір кузова",
-  price: "Вартість авто",
-  code: "Штрих-код",
-  toggleModal: () => {
-    console.log("Hello world");
-  },
-  favourites: () => {
-    console.log("Hello world");
-  },
-  addToFavourite: () => {
-    console.log("Hello world");
-  },
-  addToBasket: () => {
-    console.log("Hello world");
-  },
-};
+// CardItem.propTypes = {
+//   logo: PropTypes.string,
+//   title: PropTypes.string,
+//   color: PropTypes.string,
+//   price: PropTypes.number,
+//   code: PropTypes.number,
+//   toggleModal: PropTypes.func,
+//   favourites: PropTypes.array,
+//   addToFavourite: PropTypes.func,
+//   addToBasket: PropTypes.func,
+// };
+// CardItem.defaultProps = {
+//   logo: { death },
+//   title: "Назва марки",
+//   color: "Колір кузова",
+//   price: "Вартість авто",
+//   code: "Штрих-код",
+//   toggleModal: () => {
+//     console.log("Hello world");
+//   },
+//   favourites: () => {
+//     console.log("Hello world");
+//   },
+//   addToFavourite: () => {
+//     console.log("Hello world");
+//   },
+//   addToBasket: () => {
+//     console.log("Hello world");
+//   },
+// };
 export default CardItem;

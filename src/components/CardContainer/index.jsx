@@ -2,13 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import CardItem from "../CardItem";
 import styles from "./CardContainer.module.scss";
-const CardContainer = ({
-  products,
-  toggleModal,
-  favourites,
-  addToFav,
-  addToBasket,
-}) => {
+const CardContainer = ({ products, favourites, addToFav }) => {
   return (
     <>
       <ul className={styles.list}>
@@ -20,10 +14,10 @@ const CardContainer = ({
               color={color}
               price={price}
               code={barcode}
-              toggleModal={toggleModal}
               favourites={favourites}
               addToFavourite={addToFav}
-              addToBasket={addToBasket}
+              // addToBasket={addToBasket}
+              // toggleModal={toggleModal}
             />
           </li>
         ))}
@@ -32,24 +26,24 @@ const CardContainer = ({
   );
 };
 
-CardContainer.propTypes = {
-  products: PropTypes.array,
-  favourites: PropTypes.array,
-  toggleModal: PropTypes.func,
-  addToFav: PropTypes.func,
-  addToBasket: PropTypes.func,
-};
-CardContainer.defaultTypes = {
-  products: [],
-  favourites: [],
-  toggleModal: () => {
-    console.log("Hello world");
-  },
-  addToFav: () => {
-    console.log("Hello world");
-  },
-  addToBasket: () => {
-    console.log("Hello world");
-  },
-};
+// CardContainer.propTypes = {
+//   products: PropTypes.array,
+//   favourites: PropTypes.array,
+//   toggleModal: PropTypes.func,
+//   addToFav: PropTypes.func,
+//   addToBasket: PropTypes.func,
+// };
+// CardContainer.defaultTypes = {
+//   products: [],
+//   favourites: [],
+//   toggleModal: () => {
+//     console.log("Hello world");
+//   },
+//   addToFav: () => {
+//     console.log("Hello world");
+//   },
+//   addToBasket: () => {
+//     console.log("Hello world");
+//   },
+// };
 export default CardContainer;
