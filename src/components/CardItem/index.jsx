@@ -7,71 +7,71 @@ import styles from "./CardItem.module.scss";
 import Button from "../Button";
 import Modal from "../Modal";
 
-class CardItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      favourite: false,
-      modal: {
-        isActive: false,
-        question: "Do you want to add this product to basket?",
-      },
-    };
-  }
+// class CardItem extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       favourite: false,
+//       modal: {
+//         isActive: false,
+//         question: "Do you want to add this product to basket?",
+//       },
+//     };
+//   }
 
-  componentDidMount = () => {
-    this.setState(() => {
-      const { favourites, code } = this.props;
-      for (const car of favourites) {
-        if (car.code === code) {
-          return { favourite: true };
-        }
-      }
-    });
-  };
-  toggleModal = () => {
-    const setActive = this.state.modal;
-    setActive.isActive = !setActive.isActive;
-    this.setState({ setActive });
-  };
-  closeModal = (e) => {
-    if (e.target.classList.contains("Modal_modal_overlay__0uG9G")) {
-      this.toggleModal();
-    }
-  };
-  render() {
-    const { logo, title, color, price, code, addToFavourite, addToBasket } =
-      this.props;
-    return (
-      <>
-        <img className={styles.size} src={logo} alt="logo" />
-        <p>Brand: {title}</p>
-        <p>Color: {color}</p>
-        <p>Price: {price}$</p>
-        <p>Barcode: {code}</p>
-        <div className={styles.footer}>
-          <Button text="Add to basket" onClick={this.toggleModal} />
-          <img
-            src={this.state.favourite ? star : addStar}
-            onClick={() => {
-              addToFavourite({ title, code });
-            }}
-            alt={"is-favourite"}
-          />
-        </div>
-        <Modal
-          isActive={this.state.modal.isActive}
-          question={this.state.modal.question}
-          toggleModal={this.toggleModal}
-          onClick={this.closeModal}
-          addToBasket={addToBasket}
-          title={title}
-          code={code}
-        />
-      </>
-    );
-  }
-}
+//   componentDidMount = () => {
+//     this.setState(() => {
+//       const { favourites, code } = this.props;
+//       for (const car of favourites) {
+//         if (car.code === code) {
+//           return { favourite: true };
+//         }
+//       }
+//     });
+//   };
+//   toggleModal = () => {
+//     const setActive = this.state.modal;
+//     setActive.isActive = !setActive.isActive;
+//     this.setState({ setActive });
+//   };
+//   closeModal = (e) => {
+//     if (e.target.classList.contains("Modal_modal_overlay__0uG9G")) {
+//       this.toggleModal();
+//     }
+//   };
+//   render() {
+//     const { logo, title, color, price, code, addToFavourite, addToBasket } =
+//       this.props;
+//     return (
+//       <>
+//         <img className={styles.size} src={logo} alt="logo" />
+//         <p>Brand: {title}</p>
+//         <p>Color: {color}</p>
+//         <p>Price: {price}$</p>
+//         <p>Barcode: {code}</p>
+//         <div className={styles.footer}>
+//           <Button text="Add to basket" onClick={this.toggleModal} />
+//           <img
+//             src={this.state.favourite ? star : addStar}
+//             onClick={() => {
+//               addToFavourite({ title, code });
+//             }}
+//             alt={"is-favourite"}
+//           />
+//         </div>
+//         <Modal
+//           isActive={this.state.modal.isActive}
+//           question={this.state.modal.question}
+//           toggleModal={this.toggleModal}
+//           onClick={this.closeModal}
+//           addToBasket={addToBasket}
+//           title={title}
+//           code={code}
+//         />
+//       </>
+//     );
+//   }
+// }
 // CardItem.propTypes = {
 //   logo: PropTypes.string,
 //   title: PropTypes.string,
@@ -102,4 +102,60 @@ class CardItem extends Component {
 //     console.log("Hello world");
 //   },
 // };
+const CardItem = ({
+  logo,
+  title,
+  color,
+  price,
+  code,
+  favourites,
+  addToFavourite,
+  addToBasket,
+}) => {
+  const [favourite, isFavourite] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  useEffect(() => {
+    for (const car of favourites) {
+      if (car.code === code) {
+        return isFavourite(true);
+      }
+    }
+  }, []);
+  const toggleModal = () => {
+    setIsActive(!isActive);
+  };
+  const closeModal = (e) => {
+    if (e.target.classList.contains("Modal_modal_overlay__0uG9G")) {
+      toggleModal();
+    }
+  };
+  return (
+    <>
+      <img className={styles.size} src={logo} alt="logo" />
+      <p>Brand: {title}</p>
+      <p>Color: {color}</p>
+      <p>Price: {price}$</p>
+      <p>Barcode: {code}</p>
+      <div className={styles.footer}>
+        <Button text="Add to basket" onClick={toggleModal} />
+        <img
+          src={favourite ? star : addStar}
+          onClick={() => {
+            addToFavourite({ title, code });
+          }}
+          alt={"is-favourite"}
+        />
+      </div>
+      <Modal
+        isActive={isActive}
+        question={"Do you want to add this product to basket?"}
+        toggleModal={toggleModal}
+        onClick={closeModal}
+        addToBasket={addToBasket}
+        title={title}
+        code={code}
+      />
+    </>
+  );
+};
 export default CardItem;

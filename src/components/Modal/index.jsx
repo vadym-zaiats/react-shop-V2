@@ -19,7 +19,6 @@ const Modal = ({
           <Button
             text={"Ok"}
             onClick={() => {
-              console.log("You added car on basket!");
               toggleModal();
               addToBasket({ title, code });
             }}
@@ -27,7 +26,6 @@ const Modal = ({
           <Button
             text={"Сancel"}
             onClick={() => {
-              console.log("You canceled this action");
               toggleModal();
             }}
           />
