@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import React, { useEffect, useState } from "react";
-import CardContainer from "./components/CardContainer";
+import MainContent from "./pages/MainContent";
 import Header from "./components/Header";
 const App = () => {
   const [products, fetchProducts] = useState(null);
@@ -54,7 +54,7 @@ const App = () => {
   return (
     <>
       <Header basket={basket.length} favourites={favourites.length} />
-      <CardContainer
+      <MainContent
         products={products}
         favourites={favourites}
         addToFav={addToFav}

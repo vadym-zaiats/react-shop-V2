@@ -1,4 +1,4 @@
-import { Component, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import star from "../../img/star.svg";
 import addStar from "../../img/star0.svg";
@@ -25,7 +25,7 @@ const CardItem = ({
         return isFavourite(true);
       }
     }
-  }, []);
+  }, [code, favourites]);
   const toggleModal = () => {
     setIsActive(!isActive);
   };

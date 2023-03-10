@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import CardItem from "../CardItem";
 import styles from "./CardContainer.module.scss";
@@ -17,7 +17,6 @@ const CardContainer = ({ products, favourites, addToFav, addToBasket }) => {
               favourites={favourites}
               addToFavourite={addToFav}
               addToBasket={addToBasket}
-              // toggleModal={toggleModal}
             />
           </li>
         ))}
@@ -26,24 +25,24 @@ const CardContainer = ({ products, favourites, addToFav, addToBasket }) => {
   );
 };
 
-// CardContainer.propTypes = {
-//   products: PropTypes.array,
-//   favourites: PropTypes.array,
-//   toggleModal: PropTypes.func,
-//   addToFav: PropTypes.func,
-//   addToBasket: PropTypes.func,
-// };
-// CardContainer.defaultTypes = {
-//   products: [],
-//   favourites: [],
-//   toggleModal: () => {
-//     console.log("Hello world");
-//   },
-//   addToFav: () => {
-//     console.log("Hello world");
-//   },
-//   addToBasket: () => {
-//     console.log("Hello world");
-//   },
-// };
+CardContainer.propTypes = {
+  products: PropTypes.array,
+  favourites: PropTypes.array,
+  toggleModal: PropTypes.func,
+  addToFav: PropTypes.func,
+  addToBasket: PropTypes.func,
+};
+CardContainer.defaultTypes = {
+  products: [],
+  favourites: [],
+  toggleModal: () => {
+    console.log("Hello world");
+  },
+  addToFav: () => {
+    console.log("Hello world");
+  },
+  addToBasket: () => {
+    console.log("Hello world");
+  },
+};
 export default CardContainer;

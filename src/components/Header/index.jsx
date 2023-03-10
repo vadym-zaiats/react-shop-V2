@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import basketIco from "../../img/basket.svg";
 import favourite from "../../img/favourite.svg";
