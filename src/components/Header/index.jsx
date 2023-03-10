@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import basketIco from "../../img/basket.svg";
 import favourite from "../../img/favourite.svg";
 import styles from "./Button.module.scss";
+import { Routes, Route } from "react-router-dom";
 
 const Header = ({ basket, favourites }) => {
   return (
