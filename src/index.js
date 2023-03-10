@@ -1,7 +1,6 @@
 import ReactDOM from "react-dom/client";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-import MainContent from "./pages/MainContent";
 import Header from "./components/Header";
 const App = () => {
   const [products, fetchProducts] = useState(null);
