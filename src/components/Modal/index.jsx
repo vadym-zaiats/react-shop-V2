@@ -8,7 +8,10 @@ const Modal = ({
   toggleModal,
   onClick,
   addToBasket,
+  logo,
   title,
+  color,
+  price,
   code,
 }) => {
   return isActive ? (
@@ -20,7 +23,7 @@ const Modal = ({
             text={"Ok"}
             onClick={() => {
               toggleModal();
-              addToBasket({ title, code });
+              addToBasket({ logo, title, color, price, code });
             }}
           />
           <Button

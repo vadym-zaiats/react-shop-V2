@@ -46,7 +46,7 @@ const CardItem = ({
         <img
           src={favourite ? star : addStar}
           onClick={() => {
-            addToFavourite({ title, code });
+            addToFavourite({ logo, title, color, price, code });
           }}
           alt={"is-favourite"}
         />
@@ -57,7 +57,10 @@ const CardItem = ({
         toggleModal={toggleModal}
         onClick={closeModal}
         addToBasket={addToBasket}
+        logo={logo}
         title={title}
+        color={color}
+        price={price}
         code={code}
       />
     </>
@@ -81,16 +84,16 @@ CardItem.defaultProps = {
   price: "Вартість авто",
   code: "Штрих-код",
   toggleModal: () => {
-    console.log("Hello world");
+    console.log("toggleModal");
   },
   favourites: () => {
-    console.log("Hello world");
+    console.log("favourites");
   },
   addToFavourite: () => {
-    console.log("Hello world");
+    console.log("addToFavourite");
   },
   addToBasket: () => {
-    console.log("Hello world");
+    console.log("addToBasket");
   },
 };
 export default CardItem;
