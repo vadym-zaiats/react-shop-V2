@@ -49,9 +49,6 @@ const App = () => {
     localStorage.setItem("basket", JSON.stringify(allCarsInBasket));
     return getBasket(allCarsInBasket);
   };
-  if (!products) {
-    return <h1>Loading...</h1>;
-  }
   return (
     <>
       <Header basket={basket.length} favourites={favourites.length} />

@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import CardItem from "../CardItem";
 import styles from "./CardContainer.module.scss";
 const CardContainer = ({ products, favourites, addToFav, addToBasket }) => {
+  if (!products) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <>
       <ul className={styles.list}>
