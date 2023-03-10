@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import basketIco from "../../img/basket.svg";
 import favourite from "../../img/favourite.svg";
 import styles from "./Button.module.scss";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import BasketContent from "../../pages/BasketContent";
 import FavouriteContent from "../../pages/FavouriteContent";
 import MainContent from "../../pages/MainContent";
@@ -18,18 +18,18 @@ const Header = ({
   return (
     <>
       <div className={styles.header}>
-        <a href="/">Home</a>
+        <Link to="/">Home</Link>
         <div className={styles.header_favourite}>
           <div>{favouritesLength}</div>
-          <a href="/favourite">
+          <Link to="/favourite">
             <img src={favourite} alt="favourite" />
-          </a>
+          </Link>
         </div>
         <div className={styles.header_basket}>
           <div>{basketLength}</div>
-          <a href="/basket">
+          <Link to="/basket">
             <img src={basketIco} alt="basket" />
-          </a>
+          </Link>
         </div>
       </div>
       <Routes>

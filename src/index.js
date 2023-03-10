@@ -59,12 +59,6 @@ const App = () => {
         addToFav={addToFav}
         addToBasket={addToBasket}
       />
-      {/* <MainContent
-        products={products}
-        favourites={favourites}
-        addToFav={addToFav}
-        addToBasket={addToBasket}
-      /> */}
     </>
   );
 };
