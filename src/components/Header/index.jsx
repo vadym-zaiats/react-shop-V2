@@ -18,6 +18,7 @@ const Header = ({
   return (
     <>
       <div className={styles.header}>
+        <a href="/">Home</a>
         <div className={styles.header_favourite}>
           <div>{favouritesLength}</div>
           <a href="/favourite">
@@ -51,11 +52,9 @@ const Header = ({
 };
 
 Header.propTypes = {
-  favourites: PropTypes.number,
-  basket: PropTypes.number,
+  favourites: PropTypes.array,
 };
 Header.defaultProps = {
   favourites: null,
-  basket: null,
 };
 export default Header;
