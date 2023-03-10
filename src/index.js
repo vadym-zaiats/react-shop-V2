@@ -51,7 +51,14 @@ const App = () => {
   };
   return (
     <>
-      <Header basket={basket.length} favourites={favourites.length} />
+      <Header
+        basketLength={basket.length}
+        favouritesLength={favourites.length}
+        products={products}
+        favourites={favourites}
+        addToFav={addToFav}
+        addToBasket={addToBasket}
+      />
       {/* <MainContent
         products={products}
         favourites={favourites}

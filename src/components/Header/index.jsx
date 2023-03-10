@@ -6,24 +6,43 @@ import styles from "./Button.module.scss";
 import { Routes, Route } from "react-router-dom";
 import BasketContent from "../../pages/BasketContent";
 import FavouriteContent from "../../pages/FavouriteContent";
-const Header = ({ basket, favourites }) => {
+import MainContent from "../../pages/MainContent";
+const Header = ({
+  basketLength,
+  favouritesLength,
+  products,
+  favourites,
+  addToFav,
+  addToBasket,
+}) => {
   return (
     <>
       <div className={styles.header}>
         <div className={styles.header_favourite}>
-          <div>{favourites}</div>
+          <div>{favouritesLength}</div>
           <a href="/favourite">
             <img src={favourite} alt="favourite" />
           </a>
         </div>
         <div className={styles.header_basket}>
-          <div>{basket}</div>
+          <div>{basketLength}</div>
           <a href="/basket">
             <img src={basketIco} alt="basket" />
           </a>
         </div>
       </div>
       <Routes>
+        <Route
+          index
+          element={
+            <MainContent
+              products={products}
+              favourites={favourites}
+              addToFav={addToFav}
+              addToBasket={addToBasket}
+            />
+          }
+        ></Route>
         <Route path="/basket" element={<BasketContent />}></Route>
         <Route path="/favourite" element={<FavouriteContent />}></Route>
       </Routes>
