@@ -4,23 +4,30 @@ import basketIco from "../../img/basket.svg";
 import favourite from "../../img/favourite.svg";
 import styles from "./Button.module.scss";
 import { Routes, Route } from "react-router-dom";
-
+import BasketContent from "../../pages/BasketContent";
+import FavouriteContent from "../../pages/FavouriteContent";
 const Header = ({ basket, favourites }) => {
   return (
-    <div className={styles.header}>
-      <div className={styles.header_favourite}>
-        <div>{favourites}</div>
-        <a href="/favourite">
-          <img src={favourite} alt="favourite" />
-        </a>
+    <>
+      <div className={styles.header}>
+        <div className={styles.header_favourite}>
+          <div>{favourites}</div>
+          <a href="/favourite">
+            <img src={favourite} alt="favourite" />
+          </a>
+        </div>
+        <div className={styles.header_basket}>
+          <div>{basket}</div>
+          <a href="/basket">
+            <img src={basketIco} alt="basket" />
+          </a>
+        </div>
       </div>
-      <div className={styles.header_basket}>
-        <div>{basket}</div>
-        <a href="/basket">
-          <img src={basketIco} alt="basket" />
-        </a>
-      </div>
-    </div>
+      <Routes>
+        <Route path="/basket" element={<BasketContent />}></Route>
+        <Route path="/favourite" element={<FavouriteContent />}></Route>
+      </Routes>
+    </>
   );
 };
 

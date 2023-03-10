@@ -52,12 +52,12 @@ const App = () => {
   return (
     <>
       <Header basket={basket.length} favourites={favourites.length} />
-      <MainContent
+      {/* <MainContent
         products={products}
         favourites={favourites}
         addToFav={addToFav}
         addToBasket={addToBasket}
-      />
+      /> */}
     </>
   );
 };
