@@ -9,11 +9,15 @@ const Header = ({ basket, favourites }) => {
     <div className={styles.header}>
       <div className={styles.header_favourite}>
         <div>{favourites}</div>
-        <img src={favourite} alt="favourite" />
+        <a href="/favourite">
+          <img src={favourite} alt="favourite" />
+        </a>
       </div>
       <div className={styles.header_basket}>
         <div>{basket}</div>
-        <img src={basketIco} alt="basket" />
+        <a href="/basket">
+          <img src={basketIco} alt="basket" />
+        </a>
       </div>
     </div>
   );

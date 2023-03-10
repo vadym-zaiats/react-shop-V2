@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom/client";
 import React, { useEffect, useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 import MainContent from "./pages/MainContent";
 import Header from "./components/Header";
 const App = () => {
@@ -65,6 +66,8 @@ const App = () => {
 };
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
