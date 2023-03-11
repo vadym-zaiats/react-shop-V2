@@ -48,6 +48,7 @@ const App = () => {
     localStorage.setItem("basket", JSON.stringify(allCarsInBasket));
     return getBasket(allCarsInBasket);
   };
+
   return (
     <>
       <Header
