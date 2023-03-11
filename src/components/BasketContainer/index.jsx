@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import BasketItem from "../BasketItem";
 import styles from "./BasketContainer.module.scss";
-const BasketContainer = ({ basket, addToFav, delFromBasket, favourites }) => {
+const BasketContainer = ({ basket, addToFav, favourites, addToBasket }) => {
   return (
     <>
       <ul className={styles.list}>
@@ -15,7 +15,7 @@ const BasketContainer = ({ basket, addToFav, delFromBasket, favourites }) => {
               code={code}
               favourites={favourites}
               addToFavourite={addToFav}
-              delFromBasket={delFromBasket}
+              addToBasket={addToBasket}
             />
           </li>
         ))}
@@ -24,24 +24,16 @@ const BasketContainer = ({ basket, addToFav, delFromBasket, favourites }) => {
   );
 };
 
-// BasketContainer.propTypes = {
-//   products: PropTypes.array,
-//   favourites: PropTypes.array,
-//   toggleModal: PropTypes.func,
-//   addToFav: PropTypes.func,
-//   addToBasket: PropTypes.func,
-// };
-// BasketContainer.defaultTypes = {
-//   products: [],
-//   favourites: [],
-//   toggleModal: () => {
-//     console.log("Hello world");
-//   },
-//   addToFav: () => {
-//     console.log("Hello world");
-//   },
-//   addToBasket: () => {
-//     console.log("Hello world");
-//   },
-// };
+BasketContainer.propTypes = {
+  favourites: PropTypes.array,
+  basket: PropTypes.array,
+  addToFav: PropTypes.func,
+};
+BasketContainer.defaultTypes = {
+  basket: [],
+  favourites: [],
+  addToFav: () => {
+    console.log("addToFav");
+  },
+};
 export default BasketContainer;

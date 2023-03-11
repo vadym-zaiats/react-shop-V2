@@ -48,7 +48,6 @@ const App = () => {
     localStorage.setItem("basket", JSON.stringify(allCarsInBasket));
     return getBasket(allCarsInBasket);
   };
-  const delFromBasket = () => {};
   return (
     <>
       <Header
@@ -59,7 +58,6 @@ const App = () => {
         basket={basket}
         addToFav={addToFav}
         addToBasket={addToBasket}
-        delFromBasket={delFromBasket}
       />
     </>
   );

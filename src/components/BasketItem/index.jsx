@@ -15,7 +15,6 @@ const BasketItem = ({
   code,
   favourites,
   addToFavourite,
-  delFromBasket,
 }) => {
   const [favourite, isFavourite] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -42,7 +41,7 @@ const BasketItem = ({
       <p>Price: {price}$</p>
       <p>Barcode: {code}</p>
       <div className={styles.footer}>
-        <Button text="Add to basket" onClick={toggleModal} />
+        <Button text="Delete" onClick={toggleModal} />
         <img
           src={favourite ? star : addStar}
           onClick={() => {
@@ -53,7 +52,7 @@ const BasketItem = ({
       </div>
       <Modal
         isActive={isActive}
-        question={"Do you want to add this product to basket?"}
+        question={"Detele from basket?"}
         toggleModal={toggleModal}
         onClick={closeModal}
         logo={logo}
@@ -65,34 +64,38 @@ const BasketItem = ({
     </>
   );
 };
-// BasketItem.propTypes = {
-//   logo: PropTypes.string,
-//   title: PropTypes.string,
-//   color: PropTypes.string,
-//   price: PropTypes.number,
-//   code: PropTypes.number,
-//   toggleModal: PropTypes.func,
-//   favourites: PropTypes.array,
-//   addToFavourite: PropTypes.func,
-//   addToBasket: PropTypes.func,
-// };
-// BasketItem.defaultProps = {
-//   logo: { death },
-//   title: "Назва марки",
-//   color: "Колір кузова",
-//   price: "Вартість авто",
-//   code: "Штрих-код",
-//   toggleModal: () => {
-//     console.log("toggleModal");
-//   },
-//   favourites: () => {
-//     console.log("favourites");
-//   },
-//   addToFavourite: () => {
-//     console.log("addToFavourite");
-//   },
-//   addToBasket: () => {
-//     console.log("addToBasket");
-//   },
-// };
+BasketItem.propTypes = {
+  logo: PropTypes.string,
+  title: PropTypes.string,
+  color: PropTypes.string,
+  price: PropTypes.number,
+  code: PropTypes.number,
+  toggleModal: PropTypes.func,
+  favourites: PropTypes.array,
+  addToFavourite: PropTypes.func,
+  addToBasket: PropTypes.func,
+  delFromBasket: PropTypes.func,
+};
+BasketItem.defaultProps = {
+  logo: { death },
+  title: "Назва марки",
+  color: "Колір кузова",
+  price: "Вартість авто",
+  code: "Штрих-код",
+  toggleModal: () => {
+    console.log("toggleModal");
+  },
+  favourites: () => {
+    console.log("favourites");
+  },
+  addToFavourite: () => {
+    console.log("addToFavourite");
+  },
+  addToBasket: () => {
+    console.log("addToBasket");
+  },
+  delFromBasket: () => {
+    console.log("delFromBasket");
+  },
+};
 export default BasketItem;

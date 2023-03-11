@@ -15,7 +15,6 @@ const Header = ({
   basket,
   addToFav,
   addToBasket,
-  delFromBasket,
 }) => {
   return (
     <>
@@ -51,9 +50,9 @@ const Header = ({
           element={
             <BasketContent
               basket={basket}
-              delFromBasket={delFromBasket}
               addToFav={addToFav}
               favourites={favourites}
+              addToBasket={addToBasket}
             />
           }
         ></Route>
