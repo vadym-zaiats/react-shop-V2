@@ -47,7 +47,13 @@ const Header = ({
         <Route path="/basket" element={<BasketContent />}></Route>
         <Route
           path="/favourite"
-          element={<FavouriteContent favourites={favourites} />}
+          element={
+            <FavouriteContent
+              favourites={favourites}
+              addToBasket={addToBasket}
+              addToFav={addToFav}
+            />
+          }
         ></Route>
       </Routes>
     </>
