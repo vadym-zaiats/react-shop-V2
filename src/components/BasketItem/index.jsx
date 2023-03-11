@@ -15,6 +15,7 @@ const BasketItem = ({
   code,
   favourites,
   addToFavourite,
+  delFromBasket,
 }) => {
   const [favourite, isFavourite] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -55,6 +56,7 @@ const BasketItem = ({
         question={"Detele from basket?"}
         toggleModal={toggleModal}
         onClick={closeModal}
+        addToBasket={delFromBasket}
         logo={logo}
         title={title}
         color={color}

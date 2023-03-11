@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./Modal.module.scss";
@@ -14,6 +15,7 @@ const Modal = ({
   price,
   code,
 }) => {
+  const [actions] = useState([{}, {}, {}]);
   return isActive ? (
     <div className={styles.modal_overlay} onClick={onClick}>
       <div className={styles.modal_window}>

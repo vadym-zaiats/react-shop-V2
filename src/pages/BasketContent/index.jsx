@@ -1,5 +1,5 @@
 import BasketContainer from "../../components/BasketContainer";
-const BasketContent = ({ basket, addToFav, favourites }) => {
+const BasketContent = ({ basket, addToFav, favourites, delFromBasket }) => {
   if (basket.length === 0) {
     return <h1>Немає вираного</h1>;
   }
@@ -9,6 +9,7 @@ const BasketContent = ({ basket, addToFav, favourites }) => {
         basket={basket}
         addToFav={addToFav}
         favourites={favourites}
+        delFromBasket={delFromBasket}
       />
     </>
   );

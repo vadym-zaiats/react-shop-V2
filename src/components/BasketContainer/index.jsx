@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import BasketItem from "../BasketItem";
 import styles from "./BasketContainer.module.scss";
-const BasketContainer = ({ basket, addToFav, favourites, addToBasket }) => {
+const BasketContainer = ({ basket, addToFav, favourites, delFromBasket }) => {
   return (
     <>
       <ul className={styles.list}>
@@ -15,7 +15,7 @@ const BasketContainer = ({ basket, addToFav, favourites, addToBasket }) => {
               code={code}
               favourites={favourites}
               addToFavourite={addToFav}
-              addToBasket={addToBasket}
+              delFromBasket={delFromBasket}
             />
           </li>
         ))}

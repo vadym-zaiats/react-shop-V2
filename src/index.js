@@ -48,6 +48,22 @@ const App = () => {
     localStorage.setItem("basket", JSON.stringify(allCarsInBasket));
     return getBasket(allCarsInBasket);
   };
+  const delFromBasket = (card) => {
+    let allCarsInBasket = [...basket];
+    for (let car of allCarsInBasket) {
+      if (car.code === card.code) {
+        localStorage.setItem(
+          "basket",
+          JSON.stringify(allCarsInBasket.filter((el) => el.code !== card.code))
+        );
+        return getBasket(allCarsInBasket.filter((el) => el.code !== card.code));
+      }
+    }
+    allCarsInBasket.push(card);
+    localStorage.setItem("basket", JSON.stringify(allCarsInBasket));
+    return getBasket(allCarsInBasket);
+  };
+
   return (
     <>
       <Header
@@ -58,6 +74,7 @@ const App = () => {
         basket={basket}
         addToFav={addToFav}
         addToBasket={addToBasket}
+        delFromBasket={delFromBasket}
       />
     </>
   );
