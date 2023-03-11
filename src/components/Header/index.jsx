@@ -12,8 +12,10 @@ const Header = ({
   favouritesLength,
   products,
   favourites,
+  basket,
   addToFav,
   addToBasket,
+  delFromBasket,
 }) => {
   return (
     <>
@@ -44,7 +46,17 @@ const Header = ({
             />
           }
         ></Route>
-        <Route path="/basket" element={<BasketContent />}></Route>
+        <Route
+          path="/basket"
+          element={
+            <BasketContent
+              basket={basket}
+              delFromBasket={delFromBasket}
+              addToFav={addToFav}
+              favourites={favourites}
+            />
+          }
+        ></Route>
         <Route
           path="/favourite"
           element={
