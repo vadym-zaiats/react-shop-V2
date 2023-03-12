@@ -1,6 +1,9 @@
 import ReactDOM from "react-dom/client";
 import React, { useEffect, useState } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BasketContent from "./pages/BasketContent";
+import FavouriteContent from "./pages/FavouriteContent";
+import MainContent from "./pages/MainContent";
 import Header from "./components/Header";
 const App = () => {
   const [products, fetchProducts] = useState(null);
@@ -66,16 +69,56 @@ const App = () => {
 
   return (
     <>
-      <Header
-        basketLength={basket.length}
-        favouritesLength={favourites.length}
-        products={products}
-        favourites={favourites}
-        basket={basket}
-        addToFav={addToFav}
-        addToBasket={addToBasket}
-        delFromBasket={delFromBasket}
-      />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Header
+              basketLength={basket.length}
+              favouritesLength={favourites.length}
+              products={products}
+              favourites={favourites}
+              basket={basket}
+              addToFav={addToFav}
+              addToBasket={addToBasket}
+              delFromBasket={delFromBasket}
+            />
+          }
+        >
+          <Route
+            index
+            element={
+              <MainContent
+                products={products}
+                favourites={favourites}
+                addToFav={addToFav}
+                addToBasket={addToBasket}
+              />
+            }
+          ></Route>
+          <Route
+            path="/basket"
+            element={
+              <BasketContent
+                basket={basket}
+                addToFav={addToFav}
+                favourites={favourites}
+                delFromBasket={delFromBasket}
+              />
+            }
+          ></Route>
+          <Route
+            path="/favourite"
+            element={
+              <FavouriteContent
+                favourites={favourites}
+                addToBasket={addToBasket}
+                addToFav={addToFav}
+              />
+            }
+          ></Route>
+        </Route>
+      </Routes>
     </>
   );
 };
