@@ -4,25 +4,25 @@ import basketIco from "../../img/basket.svg";
 import favourite from "../../img/favourite.svg";
 import home from "../../img/home.svg";
 import styles from "./Button.module.scss";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 const Header = ({ basketLength, favouritesLength }) => {
   return (
     <>
       <header className={styles.header}>
-        <Link to="/">
+        <NavLink to="/home">
           <img src={home} alt="favourite" />
-        </Link>
+        </NavLink>
         <div className={styles.header_favourite}>
           <div>{favouritesLength}</div>
-          <Link to="/favourite">
+          <NavLink to="/favourite">
             <img src={favourite} alt="favourite" />
-          </Link>
+          </NavLink>
         </div>
         <div className={styles.header_basket}>
           <div>{basketLength}</div>
-          <Link to="/basket">
+          <NavLink to="/basket">
             <img src={basketIco} alt="basket" />
-          </Link>
+          </NavLink>
         </div>
       </header>
       <Outlet />

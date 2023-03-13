@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import BasketContent from "./pages/BasketContent";
 import FavouriteContent from "./pages/FavouriteContent";
 import MainContent from "./pages/MainContent";
@@ -85,6 +85,7 @@ const App = () => {
             />
           }
         >
+          <Route path="home" element={<Navigate to="/" />}></Route>
           <Route
             index
             element={
@@ -97,7 +98,7 @@ const App = () => {
             }
           ></Route>
           <Route
-            path="/basket"
+            path="basket"
             element={
               <BasketContent
                 basket={basket}
@@ -108,7 +109,7 @@ const App = () => {
             }
           ></Route>
           <Route
-            path="/favourite"
+            path="favourite"
             element={
               <FavouriteContent
                 favourites={favourites}
